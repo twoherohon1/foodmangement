@@ -2,98 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css']
+  selector: 'app-noodle',
+  templateUrl: './noodle.component.html',
+  styleUrls: ['./noodle.component.css']
 })
-export class FoodComponent implements OnInit {
-  dataFood = [
-    {
-      name: 'ข้าวผัดกระเพรา', 
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Basil_fried_crispy_pork_with_rice_-_Chiang_Mai_-_2017-07-11_%28002%29.jpg/1200px-Basil_fried_crispy_pork_with_rice_-_Chiang_Mai_-_2017-07-11_%28002%29.jpg',
-      price: 45,
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'ข้าวไข่เจียว', 
-      img: 'https://img.kapook.com/u/2016/wanwanat/0_edit/385698979x.jpg', 
-      price: 45,
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'ข้าวผัดเครื่องแกง', 
-      img: 'https://www.echoexpress.co.th/public/shop_files/product/199/1592915151_%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B9%80%E0%B8%99%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%81%E0%B8%94%E0%B8%87.jpg', 
-      price: 45, 
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'ข้าวไก่ทอดกระเทียม', 
-      img: 'https://img-global.cpcdn.com/recipes/f5aed0d3ae6ef2b1/680x482cq70/%E0%B8%A3%E0%B8%9B-%E0%B8%AB%E0%B8%A5%E0%B8%81-%E0%B8%82%E0%B8%AD%E0%B8%87-%E0%B8%AA%E0%B8%95%E0%B8%A3-%E0%B9%84%E0%B8%81%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A2%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%94%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B8%A7.jpg', 
-      price: 45, 
-      detail: '',
-      amount:1
-    },
-  ]
+export class NoodleComponent implements OnInit {
 
-  dataAppetizer = [
-    {
-      name: 'ไก่จ้อ', 
-      img: 'data:image/jpeg;base64,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',  
-      price: 45,
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'มีทบอล', 
-      img: 'https://www.pholfoodmafia.com/wp-content/uploads/2018/09/1000x650Spaghetti-with-Chicken-Meatballs.jpg', 
-      price: 45,   
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'เฟรนฟราย', 
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRJegqamFjoJ6dDWQaWCQmaZqV7LUWdCmANQ&usqp=CAU',
-      price: 45, 
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'ไก่ป้อป', 
-      img: 'https://img.wongnai.com/p/1920x0/2020/03/11/089acb8750f54453babcf8ef0dd5e114.jpg', 
-      price: 45, 
-      detail: '',
-      amount:1
-    },
-  ]
-
-  dataDrink = [
-    {
-      name: 'น้ำเปล่า', 
-      img: 'http://f.ptcdn.info/572/037/000/ny3p8buuo1HAnMfmesx-o.jpg',  
-      price: 10,
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'โค้ก', 
-      img: 'https://static.bigc.co.th/media/catalog/product/8/8/8851959132012_7.jpg', 
-      price: 20,   
-      detail: '',
-      amount:1
-    },
-    {
-      name: 'ชาเขียว', 
-      img: 'https://www.fnthaidairies.com/templateEditor/kcfinder/upload/images/%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%81%E0%B9%89%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%99%E0%B8%A1%E0%B8%AA%E0%B8%94%207x5.jpg', 
-      price: 15, 
-      detail: '',
-      amount:1
-    },
-  ]
-
-  dataNoodle = [
+  data = [
     {
       name: 'ก๋วยเตี้ยวเรือ', 
       img: 'https://i0.wp.com/goodlifeupdate.com/app/uploads/2021/04/image-130-edited.png',  
@@ -157,5 +72,6 @@ export class FoodComponent implements OnInit {
       }
     });
   }
+
 
 }

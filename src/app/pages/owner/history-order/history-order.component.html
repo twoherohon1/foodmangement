@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <span>Food Management(ประวัติการจัดออเดอร์)</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          ออเดอร์ที่1
+        </mat-panel-title>
+        <mat-panel-description>
+          รายละเอียดออเดอร์ {{panelOpenState ? 'แสดง' : 'ซ่อน'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div *ngFor="let item of historyOrder" style="display: flex;">
+        <p style="margin-right:5px">{{item.name}}</p>
+        <p>{{item.price}}บาท</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>

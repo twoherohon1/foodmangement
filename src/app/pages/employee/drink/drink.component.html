@@ -1,1 +1,39 @@
-<p>drink works!</p>
+<mat-toolbar>
+    <span>Food Management</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button color="primary" [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+    >
+    <mat-menu #menu="matMenu">
+      <div style="width: 280px; height: 50px; display: flex; justify-content: space-between;"  *ngFor="let item of puschaseList;">
+        <div mat-card-avatar class="example-header-image" ></div>
+        <p>{{item.name}}</p>
+        <mat-label>จำนวน</mat-label>
+        <input type="number" matInput placeholder="amount" [(ngModel)]="item.amount" name="amount" style="width: 31px; height: 20px;">
+        <p>{{item.price}} บาท</p>
+      </div>
+      <button mat-stroked-button color="primary" class="btn-block" style=" text-align: center;"><div style="width: 248px;" (click)="goToCart()">Go To Cart</div></button>
+    </mat-menu>
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    </mat-toolbar>
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+    <mat-card class="example-card" *ngFor="let item of data;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image" ></div>
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-subtitle>{{item.detail}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{item.img}}" alt="Photo of a Shiba Inu" style="width: 300px; height: 300px;">
+        <mat-card-content>
+          <p style="text-align: center;">
+            ราคา : {{item.price}} บาท
+          </p>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+          <mat-label>จำนวน</mat-label>
+          <input type="number" matInput placeholder="amount" [(ngModel)]="item.amount" name="amount">
+          <button mat-button (click)="addToCart(item)">เพิ่มสินค้า</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>

@@ -49,6 +49,8 @@ import { FoodComponent } from './pages/employee/food/food.component';
 import { SnackComponent } from './pages/employee/snack/snack.component';
 import { AppetizerComponent } from './pages/employee/appetizer/appetizer.component';
 import { MainCartComponent } from './pages/main-cart/main-cart.component';
+import { NoodleComponent } from './pages/employee/noodle/noodle.component';
+import { HistoryOrderComponent } from './pages/owner/history-order/history-order.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { MainCartComponent } from './pages/main-cart/main-cart.component';
     FoodComponent,
     SnackComponent,
     AppetizerComponent,
-    MainCartComponent
+    MainCartComponent,
+    NoodleComponent,
+    HistoryOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,9 @@ import { MainCartComponent } from './pages/main-cart/main-cart.component';
     MatSliderModule,
     MatSlideToggleModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule,
+    MatExpansionModule
 
   ],
   providers: [],
