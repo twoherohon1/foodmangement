@@ -1,0 +1,34 @@
+<div>
+    <mat-card style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <mat-card-header>
+        <mat-card-title>Log in FoodMangaeMent</mat-card-title>
+      </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Username</mat-label>
+                  <input type="text" matInput placeholder="Username" [(ngModel)]="person.username" name="username">
+                  <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error> -->
+                  <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error> -->
+                  
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="Password" [(ngModel)]="person.password" name="password">
+                </mat-form-field>
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="person.type" name="type">
+                    <mat-radio-button value="พนักงาน">พนักงาน</mat-radio-button>
+                    <mat-radio-button value="เจ้าของร้าน">เจ้าของร้าน</mat-radio-button>
+                    <mat-radio-button value="ร้านอาหาร">ร้านอาหาร</mat-radio-button>
+                  </mat-radio-group>
+              </form>
+        </mat-card-content >
+    
+        <button mat-stroked-button color="primary" class="btn-block"><div style="width: 200px;" (click)="loginCheck()">เข้าสู่ระบบ</div></button>
+
+    </mat-card>
+  </div>

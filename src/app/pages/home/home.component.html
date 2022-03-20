@@ -1,0 +1,38 @@
+<mat-toolbar>
+        <div class="example-sidenav-content">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"  (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+    
+    <span>Food Management</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" (click)="login()" *ngIf="!dataLogin">เข้าสู่ระบบ</button>
+    <div *ngIf="dataLogin" style="display: flex;">
+        <p style="margin-right: 10px;">{{dataLogin.name}}</p>
+        <button mat-raised-button color="primary" (click)="clearData()" >ออกจากระบบ</button>
+    </div>
+  </mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <ul *ngIf="type == 'พนักงาน'">
+        <li><a href="/home/food">เครื่องดื่ม</a></li>
+        <li><a href="">อาหารจารเดียว</a></li>
+        <li><a href="">อาหารทานเล่น</a></li>
+        <li><a href="">อาหารว่าง</a></li>
+      </ul>
+      <ul *ngIf="type == 'เจ้าของร้าน'">
+        <li><a href="">test</a></li>
+        <li><a href="">test</a></li>
+        <li><a href="">test</a></li>
+      </ul>
+      <ul *ngIf="type == 'ร้านอาหาร'">
+        <li><a href="">test</a></li>
+        <li><a href="">test</a></li>
+        <li><a href="">test</a></li>
+      </ul>
+    </mat-drawer>
+</mat-drawer-container> 
+
+
+
